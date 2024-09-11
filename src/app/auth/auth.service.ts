@@ -9,8 +9,11 @@ import firebase from 'firebase/compat/app';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore, private router: Router) { }
+
+  constructor(
+    private afAuth: AngularFireAuth,
+    private firestore: AngularFirestore,
+    private router: Router) { }
 
   // Método para iniciar sesión con correo y contraseña
   async login(email: string, password: string) {

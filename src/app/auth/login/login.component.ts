@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,19 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router) { }
+
+  ngOnInit(): void {
+    console.log(this.authService.getUser())
+    this.authService.getUser().subscribe(user => {
+      if (user) {
+        console.log(user)
+        this.router.navigate(['/dashboard']); // Redirige a Dashboard si el usuario ya está autenticado
+      }
+    });
+  }
 
   // Método para manejar el login
   async login() {

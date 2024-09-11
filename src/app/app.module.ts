@@ -28,19 +28,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
 
     DashboardComponent,
-    AngularFireModule.initializeApp({
-      projectId: "proyecto-portafolio-6134b",
-      appId: "1:615419194799:web:ffa7b61dbfd0fb7913d35a",
-      storageBucket: "proyecto-portafolio-6134b.appspot.com",
-      apiKey: "AIzaSyBC2O_P9mvqcoC59vrfhBq_koCS27dS2gw",
-      authDomain: "proyecto-portafolio-6134b.firebaseapp.com",
-      messagingSenderId: "615419194799",
-      measurementId: "G-400BX0QZ4Z"
-    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() { }
+}

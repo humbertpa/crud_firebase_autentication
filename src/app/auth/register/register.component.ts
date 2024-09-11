@@ -11,13 +11,24 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent {
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router) { }
+
+
   email: string = '';
   password: string = '';
   name: string = '';
   phone: string = '';
   errorMessage: string = '';
 
+  ngOnInit(): void {
+    this.authService.getUser().subscribe(user => {
+      if (user) {
+        this.router.navigate(['/dashboard']); // Redirige a Dashboard si el usuario ya está autenticado
+      }
+    });
+  }
 
   async register() {
     this.errorMessage = ''; // Limpiar mensaje de error antes de intentar registrar
