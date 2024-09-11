@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { FirebaseError } from 'firebase/app';
 import firebase from 'firebase/compat/app';
 
 @Injectable({
@@ -16,9 +17,18 @@ export class AuthService {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       console.log('Login exitoso', result);
-      this.router.navigate(['/dashboard']); // Navegar a otra ruta después del login
+      this.router.navigate(['/dashboard']);
+      return null;
     } catch (error) {
-      console.error('Error en el login', error);
+      if (error instanceof FirebaseError) {
+        if (error.code === 'auth/invalid-credential') {
+          return 'Correo electrónico o contraseña invalido'; // Mensaje de error específico
+        } else {
+          return 'Error al iniciar sesion: ' + error.message;
+        }
+      } else {
+        return 'Error desconocido al iniciar sesion';
+      }
     }
   }
 
@@ -39,10 +49,20 @@ export class AuthService {
       }
 
       // Navegar a otra ruta después del registro
+
       this.router.navigate(['/dashboard']);
+      return null;
     }
     catch (error) {
-      console.log(error)
+      if (error instanceof FirebaseError) {
+        if (error.code === 'auth/email-already-in-use') {
+          return 'El correo electrónico ya está en uso. Por favor, usa otro.'; // Mensaje de error específico
+        } else {
+          return 'Error en el registro: ' + error.message;
+        }
+      } else {
+        return 'Error desconocido en el registro';
+      }
     }
   }
 
@@ -53,7 +73,6 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  // Obtener el estado del usuario actual
   getUser() {
     return this.afAuth.authState;
   }

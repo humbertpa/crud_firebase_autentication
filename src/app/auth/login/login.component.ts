@@ -9,11 +9,16 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  errorMessage: string = '';
 
-    constructor(private authService: AuthService) { }
-  
-    // Método para manejar el login
-    login() {
-      this.authService.login(this.email, this.password);
+  constructor(private authService: AuthService) { }
+
+  // Método para manejar el login
+  async login() {
+    this.errorMessage = '';
+    const result = await this.authService.login(this.email, this.password);
+    if (result) {
+      this.errorMessage = result; // Mostrar el mensaje de error
     }
+  }
 }

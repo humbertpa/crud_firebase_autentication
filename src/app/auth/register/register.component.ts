@@ -16,9 +16,16 @@ export class RegisterComponent {
   password: string = '';
   name: string = '';
   phone: string = '';
+  errorMessage: string = '';
 
 
-  register() {
-    this.authService.register(this.email, this.password, this.name, this.phone)
+  async register() {
+    this.errorMessage = ''; // Limpiar mensaje de error antes de intentar registrar
+
+    const result = await this.authService.register(this.email, this.password, this.name, this.phone);
+
+    if (result) {
+      this.errorMessage = result; // Mostrar el mensaje de error
+    }
   }
 }
