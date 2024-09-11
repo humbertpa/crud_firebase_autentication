@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Subir Archivos</h2>
+    <form (ngSubmit)="onSubmit()">
+        <input type="file" (change)="onFileSelected($event)" multiple>
+        <button type="submit">Subir Archivos</button>
+    </form>
+</div>
