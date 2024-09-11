@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url("https://img.freepik.com/free-vector/paper-style-wavy-background_23-2149116135.jpg?t=st=1726079296~exp=1726082896~hmac=27519af30e8afd18ac22b9fa854aea9595122b444ccf37d0b8c3befcad41cd3c&w=996");
+  background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+  margin: 0;
+}
