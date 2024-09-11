@@ -29,7 +29,6 @@ export class AuthService {
       console.log('Registro exitoso', result);
 
       const uid = result.user?.uid;
-      console.log("El uid del usuario es ", uid)
 
       if (uid) {
         await this.firestore.collection('usuarios').doc(uid).set({
@@ -41,8 +40,9 @@ export class AuthService {
 
       // Navegar a otra ruta después del registro
       this.router.navigate(['/dashboard']);
-    } catch (error) {
-      console.error('Error en el registro', error);
+    }
+    catch (error) {
+      console.log(error)
     }
   }
 
