@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 //import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -30,13 +31,13 @@ export class RegisterComponent {
     });
   }
 
-  async register() {
+  async register(nuevo_usuario: NgForm) {
+
     this.errorMessage = ''; // Limpiar mensaje de error antes de intentar registrar
-
-    const result = await this.authService.register(this.email, this.password, this.name, this.phone);
-
+    const result = await this.authService.register(nuevo_usuario.value);
     if (result) {
       this.errorMessage = result; // Mostrar el mensaje de error
     }
   }
+
 }

@@ -35,18 +35,19 @@ export class AuthService {
     }
   }
 
-  async register(email: string, password: string, nombre: string, telefono: string) {
+  async register(nuevo_usuario: any) {
     try {
-      const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      const result = await this.afAuth.createUserWithEmailAndPassword(nuevo_usuario.email, nuevo_usuario.password);
       console.log('Registro exitoso', result);
 
       const uid = result.user?.uid;
 
+      const { password, ...datos_usuario } = nuevo_usuario
+
+      console.log(nuevo_usuario)
+
       if (uid) {
-        await this.firestore.collection('usuarios').doc(uid).set({
-          nombre: nombre,
-          telefono: telefono
-        });
+        await this.firestore.collection('usuarios').doc(uid).set(datos_usuario);
         console.log('Datos del usuario guardados en Firestore');
       }
       this.router.navigate(['/dashboard']);
