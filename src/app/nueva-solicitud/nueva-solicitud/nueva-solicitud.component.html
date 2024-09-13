@@ -1,0 +1,24 @@
+<!-- https://www.geeksforgeeks.org/angular-forms-ngform-directive/ -->
+
+<form #nueva_solicitud="ngForm" (ngSubmit)="onSubmit(nueva_solicitud)">
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" name="direccion" ngModel required>
+
+
+    <label for="propietario">Propietario:</label>
+    <input type="text" id="propietario" name="propietario" ngModel required>
+
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado" aria-label="Selecciona el estado de la obra" ngModel required>
+        <option value="obra_negra">Obra negra</option>
+        <option value="gestionado">Gestionado</option>
+    </select>
+
+    <label for="esPropietario">¿Es propietario?</label>
+    <input type="checkbox" id="esPropietario" ngModel name="esPropietario">
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <button type="submit">Enviar</button>
+</form>

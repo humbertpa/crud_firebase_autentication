@@ -31,10 +31,11 @@ label {
 }
 
 /* Estilo para los campos de entrada */
-input[type="text"],
+/* input[type="text"],
 input[type="tel"],
 input[type="email"],
-input[type="password"] {
+input[type="password"] */
+input {
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ddd;

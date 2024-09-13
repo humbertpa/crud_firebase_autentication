@@ -1,2 +1,19 @@
-<p>dashboard works!</p>
-<button (click)="logout()">Cerrar sesión</button>
+<h1>Mi lista de solicitudes</h1>
+<div id="lista-empresas">
+    <table>
+        <tr>
+            <th>Direccion</th>
+            <th>Es propietario</th>
+            <th>Estado</th>
+            <th>Propietario</th>
+            <th>Estado de solicitud</th>
+        </tr>
+        <tr *ngFor="let registro of registros">
+            <td>{{registro.direccion}}</td>
+            <td>{{registro.propietario}}</td>
+            <td>{{registro.estado}}</td>
+            <td>{{registro.es_propietario == true ? "Sí" : "No"}}</td>
+            <td>{{registro.solicitud}}</td>
+        </tr>
+    </table>
+</div>

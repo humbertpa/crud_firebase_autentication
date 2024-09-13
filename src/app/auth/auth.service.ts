@@ -37,7 +37,6 @@ export class AuthService {
 
   async register(email: string, password: string, nombre: string, telefono: string) {
     try {
-      // Crear el usuario con el email y la contraseña
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       console.log('Registro exitoso', result);
 
@@ -50,9 +49,6 @@ export class AuthService {
         });
         console.log('Datos del usuario guardados en Firestore');
       }
-
-      // Navegar a otra ruta después del registro
-
       this.router.navigate(['/dashboard']);
       return null;
     }
@@ -68,7 +64,6 @@ export class AuthService {
       }
     }
   }
-
 
   // Método para cerrar sesión
   async logout() {
