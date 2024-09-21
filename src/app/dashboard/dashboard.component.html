@@ -7,13 +7,17 @@
             <th>Ingresos</th>
             <th>Numero de Personas</th>
             <th>Estado de solicitud</th>
+            <th>Comprobante</th>
         </tr>
         <tr *ngFor="let registro of registros">
-            <td>{{registro.nombre}}</td>
-            <td>{{registro.fechaNacimiento}}</td>
-            <td>{{registro.ingresos}}</td>
-            <td>{{registro.numeroPersonas}}</td>
-            <td>{{registro.solicitud}}</td>
+            <td>{{registro.docData.nombre}}</td>
+            <td>{{registro.docData.fechaNacimiento}}</td>
+            <td>{{registro.docData.ingresos}}</td>
+            <td>{{registro.docData.numPersonas}}</td>
+            <td>{{registro.docData.solicitud}}</td>
+            <td>
+                <a *ngFor="let urlInfo of registro.urlList" href="{{urlInfo.downloadUrl}}">{{urlInfo.fileName}}</a>
+            </td>
         </tr>
     </table>
 </div>

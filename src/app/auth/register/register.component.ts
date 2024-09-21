@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 //import { AngularFireAuth } from '@angular/fire/auth';
 //import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { NgForm } from '@angular/forms';
 
 @Component({

@@ -15,7 +15,19 @@
     <label for="numPersonas">Número de personas:</label>
     <input type="number" id="numPersonas" name="numPersonas" ngModel required>
 
+    <label for="fileInput0">Selecciona un comprobante:</label>
+    <input id="fileInput0" type="file" (change)="onFileSelected($event,'file0')" required>
+
+    <label for="fileInput1">Selecciona un comprobante:</label>
+    <input id="fileInput1" type="file" (change)="onFileSelected($event,'file1')" required>
+
+    <label for="fileInput2">Selecciona un comprobante:</label>
+    <input id="fileInput2" type="file" (change)="onFileSelected($event,'file2')" required>
+
+    <label for="fileInput3">Selecciona un comprobante:</label>
+    <input id="fileInput3" type="file" (change)="onFileSelected($event,'file3')" required>
+
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
-    <button type="submit">Enviar</button>
+    <button type="submit" [disabled]="!selectedFiles">Enviar</button>
 </form>

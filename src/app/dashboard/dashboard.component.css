@@ -74,3 +74,8 @@ tr:hover {
     font-size: 20px;
   }
 }
+
+td a {
+  display: block; /* Hace que cada enlace ocupe una nueva línea */
+  margin-bottom: 5px; /* Espacio entre los enlaces */
+}
