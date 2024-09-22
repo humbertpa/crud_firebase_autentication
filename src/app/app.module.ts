@@ -35,7 +35,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule
