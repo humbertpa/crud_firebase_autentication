@@ -5,10 +5,15 @@ const checkSign = '\u{2705}';
 const dotenv = require('dotenv').config({ path: '.env' });;
 
 const envFile = `export const environment = {
-    VARIABLE_NAME: '${process.env.VARIABLE_NAME}',
-    OTHER_VARIABLE_NAME: '${process.env.OTHER_VARIABLE_NAME}',
-};
-`;
+    apiKey: "${process.env.API_KEY}",
+    authDomain: "${process.env.AUTH_DOMAIN}",
+    projectId: "${process.env.PROJECT_ID}",
+    storageBucket: "${process.env.STORAGE_BUCKET}",
+    messagingSenderId: "${process.env.MESSAGING_SENDER_ID}",
+    appId: "${process.env.APP_ID}",
+    measurementId:"${process.env.MEASUREMENT_ID}"
+};`;
+
 const targetPath = path.join(__dirname, './src/environments/environment.development.ts');
 fs.writeFile(targetPath, envFile, (err) => {
     if (err) {
