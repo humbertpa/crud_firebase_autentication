@@ -14,9 +14,12 @@
             <td>{{registro.docData.fechaNacimiento}}</td>
             <td>{{registro.docData.ingresos}}</td>
             <td>{{registro.docData.numPersonas}}</td>
-            <td>{{registro.docData.solicitud}}</td>
+            <td><span class="dot" [ngStyle]="{'background-color': registro.docData.solicitud === 'Pendiente' ? 'yellow' :
+                                   registro.docData.solicitud === 'Rechazado' ? 'red' :
+                                   registro.docData.solicitud === 'Aprobado' ? 'green' :
+                                   'transparent'}"></span>{{registro.docData.solicitud}}</td>
             <td>
-                <a *ngFor="let urlInfo of registro.urlList" href="{{urlInfo.downloadUrl}}">{{urlInfo.fileName}}</a>
+                <a *ngFor=" let urlInfo of registro.urlList" href="{{urlInfo.downloadUrl}}">{{urlInfo.fileName}}</a>
             </td>
         </tr>
     </table>

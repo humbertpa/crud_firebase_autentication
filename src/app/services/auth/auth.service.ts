@@ -67,7 +67,11 @@ export class AuthService {
     }
   }
 
-  async update_profile(usuario_editado: any) {
+  update_profile() {
+
+  }
+
+  async get_profile() {
     try {
       const user = await firstValueFrom(this.afAuth.authState);
       if (user) {
@@ -75,11 +79,13 @@ export class AuthService {
         //   const querySnapshot = await this.firestore.collection('usuarios').doc(uid).get().toPromise();
         const querySnapshot = await firstValueFrom(this.firestore.collection('usuarios').doc(uid).get());
         console.log(querySnapshot.data())
+        return { success: true, message: querySnapshot.data() }
+      } else {
+        return { success: false, message: 'No se encontró usuario' }
       }
     } catch (error) {
-
+      return { success: false, message: 'Error al intentar obtener el perfil del usuario' }
     }
-
   }
 
   // Método para cerrar sesión

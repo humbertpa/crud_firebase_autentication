@@ -1,27 +1,37 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
 <div class="profile-container">
-    <h2>Registro de Usuario</h2>
+    <h2>Perfil del usuaro</h2>
     <form #usuario_editado="ngForm" (ngSubmit)="actualizar(usuario_editado)">
         <label for="name">Nombre(s)</label>
-        <input type="text" id="name" name="name" ngModel required>
+        <input type="text" id="name" name="name" [disabled]="!editable" ngModel required>
 
         <label for="aPaterno">Apellido Paterno</label>
-        <input type="text" id="aPaterno" name="aPaterno" ngModel required>
+        <input type="text" id="aPaterno" name="aPaterno" [disabled]="!editable" ngModel required>
 
         <label for="aMaterno">Apellido Materno</label>
-        <input type="text" id="aMaterno" name="aMaterno" ngModel required>
+        <input type="text" id="aMaterno" name="aMaterno" [disabled]="true" ngModel required>
 
         <label for="email">Correo Electrónico</label>
-        <input type="email" id="email" name="email" ngModel required>
+        <input type="email" id="email" name="email" [disabled]="true" ngModel required>
 
         <label for="phone">Teléfono</label>
-        <input type="tel" id="phone" name="phone" ngModel required>
+        <input type="tel" id="phone" name="phone" [disabled]="!editable" ngModel required>
 
         <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento" ngModel required>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" [disabled]="!editable" ngModel required>
 
-        <button>Editar</button>
-        <button type="submit">Guardar</button>
-        <button>Cancelar</button>
+        <button *ngIf="!editable" (click)="toggle()">
+            <i class="fas fa-edit"></i> Editar
+        </button>
+        <div *ngIf="editable" class="button-container">
+            <button type="submit"><i class="fas fa-edit"></i> Guardar</button>
+            <button (click)="toggle()" class="cancel">
+                <i class="fas fa-times"></i> Cancelar
+            </button>
+        </div>
 
         <!-- Mostrar el mensaje de error si existe -->
         <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>

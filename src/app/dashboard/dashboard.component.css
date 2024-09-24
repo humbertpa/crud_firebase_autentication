@@ -79,3 +79,13 @@ td a {
   display: block; /* Hace que cada enlace ocupe una nueva línea */
   margin-bottom: 5px; /* Espacio entre los enlaces */
 }
+
+.dot {
+  display: inline-block; /* Asegurarse de que se comporte como un bloque en línea */
+  width: 10px; /* Ancho del punto */
+  height: 10px; /* Alto del punto */
+  border-radius: 50%; /* Hacer que sea redondo */
+  background-color: grey; /* Color del punto (puedes cambiarlo) */
+  margin-right: 5px; /* Espacio a la derecha del punto */
+  vertical-align: middle; /* Alinear verticalmente al medio */
+}

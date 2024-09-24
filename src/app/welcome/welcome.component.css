@@ -7,16 +7,17 @@
 }
 
 .welcome-card {
-  background-image: url("https://img.freepik.com/free-photo/smiling-creative-businesswoman-going-through-paperwork-talking-her-female-colleague-office_637285-1974.jpg?w=996&t=st=1727125377~exp=1727125977~hmac=368f765e08426d0ae78d92af683a6b708379691977662c2f0fe474b69b41ab28");
+  background-image: url("https://images.unsplash.com/photo-1590650046871-92c887180603?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
+  background-position: center;
   color: #ffffff;
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: row;
-  max-width: 900px;
-  width: 100%;
+  /*   max-width: 900px; */
+  width: 60%;
   height: 700px;
   position: relative; /* Esto asegura que el overlay esté confinado */
   overflow: hidden; /* Para evitar que el contenido o el overlay sobresalgan */
@@ -50,7 +51,8 @@
 
 .right-section {
   width: 40%;
-  text-align: left;
+  text-align: right;
+  align-content: end;
 }
 
 h1 {

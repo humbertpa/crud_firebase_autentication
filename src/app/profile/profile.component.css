@@ -41,8 +41,8 @@ input {
   box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
 }
 
-/* Estilo para el botón de envío */
-button[type="submit"] {
+/* Estilo para los botones de acción */
+button {
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
@@ -51,8 +51,30 @@ button[type="submit"] {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  flex: 1; /* Permitir que los botones se expandan para ocupar el espacio disponible */
+  margin: 0 5px; /* Espacio entre los botones */
+}
+
+/* Estilo para el botón de envío */
+button[type="submit"] {
+  background-color: #007bff; /* Color de fondo para el botón Guardar */
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Color de fondo al pasar el mouse sobre el botón Guardar */
+}
+
+/* Estilo para el botón Cancelar */
+button.cancel {
+  background-color: #dc3545; /* Color de fondo para el botón Cancelar */
+}
+
+button.cancel:hover {
+  background-color: #a01e2b; /* Color de fondo al pasar el mouse sobre el botón Cancelar */
+}
+
+/* Contenedor para los botones de guardar y cancelar */
+.button-container {
+  display: flex; /* Usar flex para dividir el espacio */
+  justify-content: space-between; /* Separar los botones */
 }
