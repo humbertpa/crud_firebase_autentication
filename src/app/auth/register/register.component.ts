@@ -16,11 +16,6 @@ export class RegisterComponent {
     private authService: AuthService,
     private router: Router) { }
 
-
-  email: string = '';
-  password: string = '';
-  name: string = '';
-  phone: string = '';
   errorMessage: string = '';
 
   ngOnInit(): void {

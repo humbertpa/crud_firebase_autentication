@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NuevaSolicitudComponent } from './nueva-solicitud/nueva-solicitud/nueva-solicitud.component';
+import { RootGuard } from './welcome/root.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'upload', component: FileUploadComponent, canActivate: [AuthGuard] },
   { path: 'nueva-solicitud', component: NuevaSolicitudComponent, canActivate: [AuthGuard] },
   { path: 'welcome', component: WelcomeComponent },
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' }
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 
 @NgModule({

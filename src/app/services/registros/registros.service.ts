@@ -38,8 +38,6 @@ export class RegistrosService {
     }
   }
 
-
-
   async obtener() {
 
     try {

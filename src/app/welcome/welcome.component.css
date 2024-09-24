@@ -1,0 +1,89 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.welcome-card {
+  background-image: url("https://img.freepik.com/free-photo/smiling-creative-businesswoman-going-through-paperwork-talking-her-female-colleague-office_637285-1974.jpg?w=996&t=st=1727125377~exp=1727125977~hmac=368f765e08426d0ae78d92af683a6b708379691977662c2f0fe474b69b41ab28");
+  background-size: cover;
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  max-width: 900px;
+  width: 100%;
+  height: 700px;
+  position: relative; /* Esto asegura que el overlay esté confinado */
+  overflow: hidden; /* Para evitar que el contenido o el overlay sobresalgan */
+}
+
+.welcome-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Color negro semi-transparente */
+  z-index: 1;
+  border-radius: 15px; /* Coincide con los bordes de la tarjeta */
+}
+
+.welcome-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.left-section {
+  width: 60%; /* Ocupa más espacio en la tarjeta */
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinea verticalmente el contenido */
+  text-align: left;
+}
+
+.right-section {
+  width: 40%;
+  text-align: left;
+}
+
+h1 {
+  font-size: 4rem; /* Aumenta el tamaño del título */
+  margin: 0;
+  font-weight: bold;
+  line-height: 1.2; /* Ajusta el espaciado entre las líneas del título */
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 2rem; /* Aumenta el tamaño del subtítulo */
+  font-weight: 400;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.cta-buttons {
+  margin-top: 20px;
+}
+
+.cta-buttons a {
+  text-decoration: none;
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-buttons a:hover {
+  background-color: #6dd5fa;
+}

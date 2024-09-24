@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { FirebaseError } from 'firebase/app';
 import firebase from 'firebase/compat/app';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -66,10 +67,25 @@ export class AuthService {
     }
   }
 
+  async update_profile(usuario_editado: any) {
+    try {
+      const user = await firstValueFrom(this.afAuth.authState);
+      if (user) {
+        const uid = user.uid;
+        //   const querySnapshot = await this.firestore.collection('usuarios').doc(uid).get().toPromise();
+        const querySnapshot = await firstValueFrom(this.firestore.collection('usuarios').doc(uid).get());
+        console.log(querySnapshot.data())
+      }
+    } catch (error) {
+
+    }
+
+  }
+
   // Método para cerrar sesión
   async logout() {
     await this.afAuth.signOut();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/welcome']);
   }
 
   getUser() {
