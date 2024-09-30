@@ -89,3 +89,18 @@ td a {
   margin-right: 5px; /* Espacio a la derecha del punto */
   vertical-align: middle; /* Alinear verticalmente al medio */
 }
+
+td i:hover {
+  color: #4caf50;
+}
+
+.nombre {
+  display: flex;
+  justify-content: space-between; /* Espacia el texto y el ícono */
+  align-items: center; /* Alinea verticalmente el contenido */
+}
+
+.nombre i {
+  margin-left: 10px; /* Añade un margen para separar el ícono del texto */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el ícono */
+}

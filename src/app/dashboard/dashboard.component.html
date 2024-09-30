@@ -10,7 +10,12 @@
             <th>Comprobante</th>
         </tr>
         <tr *ngFor="let registro of registros">
-            <td>{{registro.docData.nombre}}</td>
+            <td>
+                <div class="nombre">
+                    {{registro.docData.nombre}}
+                    <i class="fas fa-eye" (click)="abrirModal(registro)"></i>
+                </div>
+            </td>
             <td>{{registro.docData.fechaNacimiento}}</td>
             <td>{{registro.docData.ingresos}}</td>
             <td>{{registro.docData.numPersonas}}</td>
@@ -24,3 +29,5 @@
         </tr>
     </table>
 </div>
+
+<app-user-info-modal [userInfo]="selectedUser" (close)="cerrarModal()" *ngIf="selectedUser"></app-user-info-modal>

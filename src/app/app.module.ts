@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NuevaSolicitudComponent } from './nueva-solicitud/nueva-solicitud/nueva-solicitud.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+import { UserInfoModalComponent } from "./dashboard/user-info-modal/user-info-modal.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'
     LoginComponent,
     NavbarComponent,
     DashboardComponent,
-    NuevaSolicitudComponent
+    NuevaSolicitudComponent,
+    UserInfoModalComponent
 
   ],
   imports: [
@@ -38,7 +40,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'
     AngularFireModule.initializeApp(environment),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

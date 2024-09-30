@@ -38,6 +38,23 @@ export class RegistrosService {
     }
   }
 
+  async actualizar(comentario: string, estado: string, docId: string) {
+    try {
+      const user = await firstValueFrom(this.afAuth.authState);
+
+      if (!user) {
+        return { success: false, message: 'No hay usuario autenticado' };
+      }
+
+      await this.firestore.collection('solicitudes').doc(docId).update({ comentarios: comentario, solicitud: estado })
+      return { success: true };
+
+    } catch (error) {
+      console.error('Error al actualizar el registro:', error);
+      return { success: false, message: 'Error al guardar el registro: ' + error };
+    }
+  }
+
   async obtener() {
 
     try {
@@ -76,7 +93,7 @@ export class RegistrosService {
                 });
               }
             }
-            registros.push({ urlList, docData })
+            registros.push({ docId, docData, urlList })
           }
         }
         console.log(registros)

@@ -14,10 +14,21 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  selectedUser: any = null
+
   async ngOnInit(): Promise<void> {
     console.log('Mensaje de inicio en el dashboard')
     const registros = await this.registroService.obtener()
-    console.table(registros)
     this.registros = registros
+  }
+
+  abrirModal(registro: object) {
+    console.log(registro)
+    this.selectedUser = registro
+  }
+
+  cerrarModal() {
+    this.selectedUser = null
+    console.log("El modal se cerró")
   }
 }
