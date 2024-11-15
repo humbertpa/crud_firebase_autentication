@@ -1,26 +1,38 @@
+:host {
+  height: 100%;
+}
+
 .welcome-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  flex-grow: 1;
   align-items: center;
-  height: 100%;
+  padding: 20px;
   width: 100%;
+  height: 100%;
 }
 
 .welcome-card {
   background-image: url("https://images.unsplash.com/photo-1590650046871-92c887180603?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
+
   color: #ffffff;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+
+  box-sizing: border-box;
   display: flex;
-  flex-direction: row;
-  /*   max-width: 900px; */
+  flex-direction: column;
+  align-items: center;
   width: 60%;
-  height: 700px;
-  position: relative; /* Esto asegura que el overlay esté confinado */
-  overflow: hidden; /* Para evitar que el contenido o el overlay sobresalgan */
+  height: 100%;
+
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .welcome-card::before {
@@ -30,9 +42,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Color negro semi-transparente */
+  background-color: rgba(0, 0, 0, 0.723);
   z-index: 1;
-  border-radius: 15px; /* Coincide con los bordes de la tarjeta */
+  border-radius: 5px;
 }
 
 .welcome-card > * {
@@ -40,52 +52,48 @@
   z-index: 2;
 }
 
-.left-section {
-  width: 60%; /* Ocupa más espacio en la tarjeta */
-  padding-right: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Alinea verticalmente el contenido */
-  text-align: left;
-}
-
-.right-section {
-  width: 40%;
-  text-align: right;
-  align-content: end;
+.descripcion {
+  padding-top: 50px;
+  text-align: center;
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 0;
+  }
 }
 
 h1 {
-  font-size: 4rem; /* Aumenta el tamaño del título */
-  margin: 0;
+  font-size: 4rem;
   font-weight: bold;
-  line-height: 1.2; /* Ajusta el espaciado entre las líneas del título */
-  color: #ffffff;
+  line-height: 1.2;
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
 }
 
 h2 {
   font-size: 2rem; /* Aumenta el tamaño del subtítulo */
   font-weight: 400;
-  margin-top: 20px;
-  color: #ffffff;
+  padding: 0 40px;
+  text-wrap: pretty;
 }
 
 .cta-buttons {
-  margin-top: 20px;
+  margin-top: 100px;
 }
 
 .cta-buttons a {
   text-decoration: none;
-  background-color: #000000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000;
   padding: 10px 20px;
-  border-radius: 5px;
+  height: 25px;
+  border-radius: 200px;
   border: 1px solid white;
-  margin: 0 10px;
   font-weight: bold;
   transition: background-color 0.3s;
 }
 
 .cta-buttons a:hover {
-  background-color: #6dd5fa;
+  background-color: #000000;
+  color: white;
 }
